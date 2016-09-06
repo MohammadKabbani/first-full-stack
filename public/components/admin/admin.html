@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-light bg-faded">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active"> <a class="nav-link" href="#/admin" ng-click="changeform()">Add New Job Offer<span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#/admin" ng-click="changeView()">View CVs  
+   </a> </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row">
+        <form class="col-md-4" ng-show="jobForm" style="margin-bottom: 4%;">
+            <div class="form-group">
+                <div class="form-group">
+
+                    <label >Job Title</label>
+                    <input type="text" ng-model="job.jobTitle" /> 
+                 <div class="form-group">
+                <label for="exampleTextarea">Job Discription</label>
+                <textarea class="form-control" ng-model="job.jobDiscription" id="exampleTextarea" rows="3"></textarea>
+            </div>
+                <label for="exampleSelect1">Place</label>
+                <select class="form-control" ng-model="job.place"id="exampleSelect1">
+                    <option>Beirut-Lebanon</option>
+                    <option>Saida-Lebanon</option>
+                    <option>Bikaa-Lebanon</option>
+                    <option>Tripoli-Lebanon</option>
+                    <option>Sawfar-Lebanon</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelect2">Salary</label>
+                <select  ng-model="job.salay" class="form-control" id="exampleSelect2">
+                    <option>500$-1000$</option>
+                    <option>1000$-1500$</option>
+                    <option>1500$-2000$</option>
+                    <option>2000$-2500$</option>
+                    <option>2500$-3000$</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" class="form-control-file" ng-model="job.chooseFile" id="exampleInputFile" aria-describedby="fileHelp"> <small id="fileHelp" class="form-text text-muted">Companies Files</small> </div>
+            <fieldset class="form-group">
+                <legend>Experience Needed</legend>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="job.experienceNeeded" name="optionsRadios" id="optionsRadios1" value="Fresh Grad" checked> Fresh Grad </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" ng-model="job.experienceNeeded" id="optionsRadios1" value="Junior" > Junior </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="job.experienceNeeded" name="optionsRadios" id="optionsRadios2" value="Senior"> Senior </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="job.experienceNeeded" name="optionsRadios" id="optionsRadios3" value="2 Years experience"> 2 Years experience </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="job.experienceNeeded" name="optionsRadios" id="optionsRadios1" value="5 Years experience" > 5 Years experience </label>
+                </div>
+            </fieldset>
+            
+            <button type="submit" class="btn btn-primary" ng-click="submitJob(job)">Save</button>
+        
+        </form>
+        
+       
+</div>
+
+<div>
+         <div class="row">
+         <div class="col-sm-8">
+          
+        <div ng-show="viewCvForm">
+          <uib-accordion close-others="oneAtATime" ng-repeat="newcv in jobSeekers">
+    <div uib-accordion-group class="panel-default" heading="{{newcv.firstName}} CV " is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+
+        <p>First Name: {{newcv.firstName }}</p> 
+        <p>Last Name: {{newcv.lastName }}</p> 
+        <p>Job Applied for: {{newcv.jobCategory }}</p> 
+        <p>Date Of Birth: {{newcv.DOB }}</p> 
+        <p>Phone Number: {{newcv.phoneNum }}</p> 
+        <p>E-mail: {{newcv.Email}}</p> 
+        <p>Address: {{newcv.address }}</p>
+        <p>Marital Status: {{newcv.MaritalStatus }}</p>
+        <p>Years Of Exp: {{newcv.yearsOfExp }}</p>
+        <p>CV File: {{newcv.uploadYourCV}}</p>
+    </div>
+  </uib-accordion>
+
+        </div>
+        </div>
+     
+</div>
+
+<div>
+    
+   
+  
+</div>
